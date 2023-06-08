@@ -37,10 +37,17 @@ public class Program {
 				if (capturedPiece != null) {
 					captured.add(capturedPiece);
 				}
-			} catch (ChessException e) {
+				if (chessMatch.getPromoted() != null) {
+					System.out.print("Enter piece for promotion (B/N/R/Q): ");
+					String type = sc.nextLine();
+					chessMatch.replacePromotedPiece(type);
+				}
+			} 
+			catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();// Depois de imprimir a mensagem o programa vai aguardar apertar o enter
-			} catch (InputMismatchException e) {
+			} 
+			catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();// Depois de imprimir a mensagem o programa vai aguardar apertar o enter
 			}
